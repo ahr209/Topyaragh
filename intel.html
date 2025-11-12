@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP YARAGH - Luxury Cabinet Accessories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            direction: rtl;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            padding: 25px;
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid #872450;
+        }
+        
+        .logo-section {
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #A48111;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(135, 36, 80, 0.4);
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 13px;
+            padding: 10px;
+            background: white;
+        }
+        
+        .since {
+            color: #A48111;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .social-top {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .social-top-btn {
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid #A48111;
+            font-weight: bold;
+        }
+        
+        .social-top-btn:hover {
+            background: linear-gradient(135deg, #A48111 0%, #c9a845 100%);
+            color: #000;
+            transform: translateY(-2px);
+        }
+        
+        h2 {
+            color: white;
+            margin: 20px 0 15px;
+            font-size: 18px;
+            border-bottom: 2px solid #872450;
+            padding-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .branch-card {
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 12px 0;
+            border-right: 3px solid #A48111;
+            text-align: right;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(135, 36, 80, 0.2);
+        }
+        
+        .branch-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .branch-title {
+            color: #A48111;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .address {
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .card-section {
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            border-radius: 12px;
+            padding: 18px;
+            margin: 18px 0;
+            color: white;
+            box-shadow: 0 8px 20px rgba(135, 36, 80, 0.4);
+            border: 1px solid #A48111;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #A48111;
+        }
+        
+        .show-cards-btn {
+            background: rgba(164, 129, 17, 0.2);
+            padding: 14px;
+            border-radius: 10px;
+            margin: 12px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #A48111;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .show-cards-btn:hover {
+            background: rgba(164, 129, 17, 0.3);
+            transform: scale(1.03);
+            border-color: #c9a845;
+        }
+        
+        .cards-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 350px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid #A48111;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+        }
+        
+        .modal-title {
+            color: #A48111;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .card-item {
+            background: rgba(164, 129, 17, 0.1);
+            padding: 14px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(164, 129, 17, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .card-item:hover {
+            background: rgba(164, 129, 17, 0.2);
+            transform: translateY(-2px);
+            border-color: #A48111;
+        }
+        
+        .phone-item {
+            background: rgba(164, 129, 17, 0.1);
+            padding: 14px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(164, 129, 17, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .phone-item:hover {
+            background: rgba(164, 129, 17, 0.2);
+            transform: translateY(-2px);
+            border-color: #A48111;
+        }
+        
+        .bank-logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+        
+        .phone-logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .bank-keshavarzi { background: #4CAF50; color: white; }
+        .bank-saderat { background: #2196F3; color: white; }
+        .bank-mellat { background: #f44336; color: white; }
+        .bank-sepah { background: #FFC107; color: #333; }
+        
+        .card-info {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .phone-info {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .card-number {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            direction: ltr;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        
+        .phone-number {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            direction: ltr;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        
+        .card-name {
+            font-size: 12px;
+            color: #A48111;
+        }
+        
+        .phone-name {
+            font-size: 12px;
+            color: #A48111;
+        }
+        
+        .payment-notice {
+            background: rgba(164, 129, 17, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0 8px;
+            border: 1px solid #A48111;
+            font-size: 12px;
+            text-align: center;
+            color: #A48111;
+        }
+        
+        .close-modal {
+            background: linear-gradient(135deg, #A48111 0%, #c9a845 100%);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(164, 129, 17, 0.4);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-map {
+            background: linear-gradient(135deg, #A48111 0%, #c9a845 100%);
+            color: #000;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            color: white;
+            border: 2px solid #A48111;
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            color: white;
+            border: 2px solid #A48111;
+        }
+        
+        .btn-eitaa {
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            color: white;
+            border: 2px solid #A48111;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .save-contact-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0 0 0;
+            background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+            border: 2px solid #A48111;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .save-contact-btn:hover {
+            background: linear-gradient(135deg, #A48111 0%, #c9a845 100%);
+            color: #000;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- لوگو و نام برند -->
+        <div class="logo-section">
+            <div class="logo">
+                <img src="https://i.ibb.co/zWYmQYS5/image.png" alt="TOP YARAGH Logo" class="logo-img">
+            </div>
+            
+            <div class="since">SINCE 1973</div>
+        </div>
+
+        <!-- سایت و اینستاگرام - اول صفحه -->
+        <div class="social-top">
+            <a href="#" class="social-top-btn" onclick="showWebsite()">🌐 وبسایت</a>
+            <a href="#" class="social-top-btn" onclick="showInstagram()">📷 اینستاگرام</a>
+        </div>
+        
+        <!-- ارتباط -->
+        <h2>📱 ارتباط با ما</h2>
+        
+        <!-- واتساپ -->
+        <a href="https://wa.me/989356271133" class="btn btn-whatsapp" target="_blank">واتساپ</a>
+        
+        <!-- ایتا و تلگرام -->
+        <a href="https://eitaa.com/Topyaragh" class="btn btn-eitaa" target="_blank">ایتا</a>
+        <a href="https://t.me/Topyaragh1973" class="btn btn-telegram" target="_blank">تلگرام</a>
+
+        <!-- شماره تلفن‌ها -->
+        <h2>📞 شماره تلفن‌ها</h2>
+        
+        <div class="card-section">
+            <div class="card-title">📞 برای تماس</div>
+            
+            <div class="show-cards-btn" onclick="showPhonesModal()">
+                📋 مشاهده شماره تلفن‌ها
+            </div>
+        </div>
+        
+        <!-- شعب -->
+        <h2>📍 شعب</h2>
+        
+        <div class="branch-card">
+            <div class="branch-title">🏢 شعبه کاشان</div>
+            <div class="address">بلوار مطهری، بالاتر از مسجد قائم، نبش بیان 9</div>
+            <a href="https://maps.app.goo.gl/JfMg4HjoTz9c9kGN6" class="btn btn-map" target="_blank">🗺️ مشاهده در نقشه</a>
+        </div>
+        
+        <div class="branch-card">
+            <div class="branch-title">🏢 شعبه تهران</div>
+            <div class="address">میدان حسن آباد، خیابان میردامادی، پلاک 59</div>
+            <a href="https://maps.app.goo.gl/PZXpYtNooRQ9LyPQ9" class="btn btn-map" target="_blank">🗺️ مشاهده در نقشه</a>
+        </div>
+        
+        <!-- شماره کارت‌ها -->
+        <h2>💳 شماره کارت‌ها</h2>
+        
+        <div class="card-section">
+            <div class="card-title">💳 برای واریز وجه</div>
+            
+            <div class="show-cards-btn" onclick="showCardsModal()">
+                📋 مشاهده شماره کارت‌ها
+            </div>
+        </div>
+        
+        <!-- ذخیره مخاطب -->
+        <button class="save-contact-btn" onclick="addToPhoneContacts()">💾 ذخیره در مخاطبین</button>
+    </div>
+
+    <!-- مودال نمایش کارت‌ها -->
+    <div id="cardsModal" class="cards-modal">
+        <div class="modal-content">
+            <div class="modal-title">💳 شماره کارت‌های بانکی</div>
+            
+            <!-- شماره کارت اول: کشاورزی -->
+            <div class="card-item" onclick="copyToClipboard('6037701178073273')">
+                <div class="bank-logo bank-keshavarzi">کشاورزی</div>
+                <div class="card-info">
+                    <div class="card-number">6037 7011 7807 3273</div>
+                    <div class="card-name">به نام: عباس رجبی</div>
+                </div>
+            </div>
+            
+            <!-- شماره کارت دوم: صادرات -->
+            <div class="card-item" onclick="copyToClipboard('6037691581828118')">
+                <div class="bank-logo bank-saderat">صادرات</div>
+                <div class="card-info">
+                    <div class="card-number">6037 6915 8182 8118</div>
+                    <div class="card-name">به نام: حمیدرضا رجبی</div>
+                </div>
+            </div>
+            
+            <!-- شماره کارت سوم: ملت -->
+            <div class="card-item" onclick="copyToClipboard('6104337437275710')">
+                <div class="bank-logo bank-mellat">ملت</div>
+                <div class="card-info">
+                    <div class="card-number">6104 3374 3727 5710</div>
+                    <div class="card-name">به نام: حمیدرضا رجبی</div>
+                </div>
+            </div>
+            
+            <!-- شماره کارت چهارم: سپه -->
+            <div class="card-item" onclick="copyToClipboard('5892101348309366')">
+                <div class="bank-logo bank-sepah">سپه</div>
+                <div class="card-info">
+                    <div class="card-number">5892 1013 4830 9366</div>
+                    <div class="card-name">به نام: امیرحسین رجبی</div>
+                </div>
+            </div>
+            
+            <!-- متن جدید زیر کارت‌ها -->
+            <div class="payment-notice">
+                💬 پس از واریز رسید را ارسال کنید (داخل واتساپ)
+            </div>
+            
+            <button class="close-modal" onclick="closeCardsModal()">بستن</button>
+        </div>
+    </div>
+
+    <!-- مودال نمایش تلفن‌ها -->
+    <div id="phonesModal" class="cards-modal">
+        <div class="modal-content">
+            <div class="modal-title">📞 شماره تلفن‌ها</div>
+            
+            <!-- شماره تلفن 1 -->
+            <div class="phone-item" onclick="callPhone('09356271133')">
+                <div class="phone-logo">📱</div>
+                <div class="phone-info">
+                    <div class="phone-number">0935 627 1133</div>
+                    <div class="phone-name">موبایل</div>
+                </div>
+            </div>
+            
+            <!-- شماره تلفن 2 -->
+            <div class="phone-item" onclick="callPhone('03155571090')">
+                <div class="phone-logo">🏪</div>
+                <div class="phone-info">
+                    <div class="phone-number">031 5557 1090</div>
+                    <div class="phone-name">فروشگاه کاشان</div>
+                </div>
+            </div>
+            
+            <!-- شماره تلفن 3 -->
+            <div class="phone-item" onclick="callPhone('02166700411')">
+                <div class="phone-logo">🏪</div>
+                <div class="phone-info">
+                    <div class="phone-number">021 6670 0411</div>
+                    <div class="phone-name">فروشگاه تهران</div>
+                </div>
+            </div>
+            
+            <button class="close-modal" onclick="closePhonesModal()">بستن</button>
+        </div>
+    </div>
+
+    <script>
+        // نمایش مودال کارت‌ها
+        function showCardsModal() {
+            document.getElementById('cardsModal').style.display = 'flex';
+        }
+        
+        function closeCardsModal() {
+            document.getElementById('cardsModal').style.display = 'none';
+        }
+
+        // نمایش مودال تلفن‌ها
+        function showPhonesModal() {
+            document.getElementById('phonesModal').style.display = 'flex';
+        }
+        
+        function closePhonesModal() {
+            document.getElementById('phonesModal').style.display = 'none';
+        }
+        
+        // بستن مودال با کلیک خارج
+        document.getElementById('cardsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCardsModal();
+            }
+        });
+
+        document.getElementById('phonesModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePhonesModal();
+            }
+        });
+        
+        // کپی شماره کارت
+        function copyToClipboard(cardNumber) {
+            navigator.clipboard.writeText(cardNumber.replace(/\s/g, '')).then(() => {
+                showCopyMessage('شماره کارت کپی شد!');
+            });
+        }
+
+        // تماس با شماره تلفن
+        function callPhone(phoneNumber) {
+            window.open('tel:' + phoneNumber);
+        }
+        
+        function showCopyMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = message;
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #872450 0%, #6a1c3d 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 1001;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+                border: 2px solid #A48111;
+            `;
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                document.body.removeChild(messageDiv);
+            }, 2000);
+        }
+        
+        // سایت و اینستاگرام - لینک‌های واقعی
+        function showWebsite() {
+            window.open("https://topyaragh.com", "_blank");
+        }
+        
+        function showInstagram() {
+            window.open("https://www.instagram.com/top.yaragh?igsh=MXZpZGV3d3ZxMTQ4aQ==", "_blank");
+        }
+        
+        // ذخیره در مخاطبین گوشی
+        function addToPhoneContacts() {
+            // ایجاد vCard با تمام اطلاعات
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:TOP YARAGH
+ORG:TOP YARAGH - Luxury Cabinet Accessories
+TEL;TYPE=CELL:09356271133
+TEL;TYPE=WORK:03155571090
+TEL;TYPE=WORK:02166700411
+URL:https://topyaragh.com
+URL:https://www.instagram.com/top.yaragh
+URL:https://eitaa.com/Topyaragh
+URL:https://t.me/Topyaragh1973
+NOTE:TOP YARAGH - Since 1973
+
+🏢 شعبه کاشان:
+بلوار مطهری، بالاتر از مسجد قائم، نبش بیان 9
+
+🏢 شعبه تهران:
+میدان حسن آباد، خیابان میردامادی، پلاک 59
+
+💳 شماره کارت‌های بانکی:
+• 6037-7011-7807-3273 (کشاورزی - عباس رجبی)
+• 6037-6915-8182-8118 (صادرات - حمیدرضا رجبی)
+• 6104-3374-3727-5710 (ملت - حمیدرضا رجبی)
+• 5892-1013-4830-9366 (سپه - امیرحسین رجبی)
+
+💬 پس از واریز رسید را ارسال کنید (داخل واتساپ)
+END:VCARD`;
+
+            // ایجاد Blob و لینک دانلود
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            
+            // ایجاد لینک برای دانلود
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'TOP_YARAGH.vcf';
+            link.style.display = 'none';
+            
+            // اضافه کردن لینک به صفحه و کلیک کردن
+            document.body.appendChild(link);
+            link.click();
+            
+            // پاکسازی
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            
+            showCopyMessage('فایل مخاطب دانلود شد! فایل را باز کنید تا مستقیماً به مخاطبین اضافه شود');
+        }
+    </script>
+</body>
+</html>
